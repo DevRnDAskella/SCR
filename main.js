@@ -1,44 +1,81 @@
 import airportsData from './staticData.js';
+import validate from './validate.js';
 
-
-const airports = document.querySelectorAll('.airport');
-const baseSet = document.querySelectorAll('.btn-setting');
 const currentTime = new Date().toUTCString();
+const airports = document.querySelectorAll('.airport');
+
+
 const data = {
-  airportName: '',
-  currentDate: currentTime.slice(5, 11)
-    .split(' ')
-    .join('')
-    .toUpperCase(),
-  currentSeason: '',
-  flight: '',
-  kindFlight: '',
-  originTimeArrival: '',
-  originTimeDeparture: '',
-  correctionTimeDeparture: '',
-  correctionTimeArrival: '',
-  typeAircraft: 'SU9',
-  layoutAircraft: '100/103',
-}
-
-for (const airport of airports) {
-  airport.addEventListener('click', () => {
-    for (const airport of airports) {
-      airport.classList.remove('btn-press');
-    }
-    airport.classList.add('btn-press');
-
-    data.airportName = airport.textContent;
-  })
+    airportName: '',
+    isSloted: false,
+    modeCorrection: '',
+    currentDate: currentTime.slice(5, 11)
+        .split(' ')
+        .join('')
+        .toUpperCase(),
+    currentSeason: 'W21', // TODO написать функцию
+    flight: '', // input
+    kindFlight: '', // input
+    originTimeArrival: '', // input !
+    originTimeDeparture: '', // input !
+    correctionTimeDeparture: '', // input !
+    correctionTimeArrival: '', // input !
+    typeAircraft: 'SU9', // input !
+    layoutAircraft: '100/103', // input !
+    emailResponse: 'ops1@azimuth.aero'.toUpperCase(),
+    textAdded: 'GI BRGDS,=AZIMUTH=OPS',
 }
 
 
-console.log(data.currentDate);
+function setAirportName() {
+
+}
+
+function isSlotedAirport() {
+
+}
+
+function setModeCorrection() {
+
+}
+
+function setFlightNumber() {
+
+}
+
+function setKindFlight() {
+
+}
+
+function setOriginTimeDeparture() {
+
+}
+
+function setOriginTimeArrival() {
+
+}
+
+function setCorrectionTimeArrival() {
+
+}
+
+function setCorrectionTimeArrival() {
+
+}
 
 function vilidateData() {
-
+    //  ,удет отдельный js модуль под них
 }
 
 function renderData(data) {
-
+    if (data.modeCorrection == 'new')
+        return `
+      SCR
+      ${data.emailResponse}
+      ${data.currentSeason}
+      ${data.currentDate}
+      ${data.airportName}
+      
+      ${data.textAdded}
+    `;
 }

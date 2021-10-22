@@ -2,35 +2,93 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible"
-                                                                                                                          content="IE=edge">
-  <meta name="viewport"
-                                                                                                                          content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet"
-                                                                                                                          href="normalize.css">
-  <link rel="stylesheet"
-                                                                                                                          href="style.css">
-  <title>SCR</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <title>SCR</title>
 </head>
 
 <body>
-  <main>
-    <section class='menu airports flex'>
-      <button class='btn airport'>VKO</button>
-      <button class='btn airport'>LED</button>
-      <button class='btn airport'>AER</button>
-      <button class='btn airport'>IST</button>
-    </section>
-    <section class="menu flex">
-      <button class='btn btn-setting'>NEW</button>
-      <button class='btn btn-setting'>CORRECTION</button>
-      <button class='btn btn-setting'>CANSEL</button>
-    </section>
-    <section class='main-form grid hidden'></section>
-  </main>
-  <script src="main.js"
-                                                                                                                          type="module"></script>
+    <div class="container flex">
+        <form class="menu" action="#">
+            <div class="menu-title"><span>МЕНЮ</span></div>
+            <section class="arrival-or-departure">
+                <input type="radio" name="question" id="arrival">
+                <label for="arrival">ПРИЛЕТАЕМ</label>
+
+                <input type="radio" name="question" id="departure">
+                <label for="departure">ВЫЛЕТАЕМ</label>
+            </section>
+            <section class="menu-correction">
+                <input type="radio" name='correction' id='new'>
+                <label for="new">NEW</label>
+
+                <input type="radio" name='correction' id='correction'>
+                <label for="correction">CORRECTION</label>
+
+                <input type="radio" name='correction' id='cansel'>
+                <label for="cansel">CANCEL</label>
+            </section>
+            <section class='menu-airports airports'>
+                <input type="radio" id='vko' name="airport">
+                <label for="vko">VKO</label>
+
+                <input type="radio" id='aer' name="airport">
+                <label for="aer">AER</label>
+
+                <input type="radio" id='led' name="airport">
+                <label for="led">LED</label>
+
+                <input type="radio" id='ist' name="airport">
+                <label for="ist">IST</label>
+            </section>
+            <section class="menu-flight flight">
+                <section class="flight-number">
+                    <label for="flight-departure">Рейс вылета</label>
+                    <input type="text" class="flight-number" id='flight-departure'>
+
+                    <label for="flight-arrival">Рейс прилета</label>
+                    <input type="text" class="flight-arrival" id='flight-arrival'>
+                </section>
+                <section class="flight-type flex">
+                    <input type="radio" name="flight-type" id="regular">
+                    <label for="regular">Регулярный</label>
+
+                    <input type="radio" name="flight-type" id="empty">
+                    <label for="empty">Перегон</label>
+
+                    <input type="radio" name="flight-type" id="charter">
+                    <label for="charter">Чартер</label>
+                </section>
+            </section>
+            <section class="menu-time time flex">
+                <div class="time-origin origin">
+                    <label for="origin-time-departure">Первоначальное время вылета</label>
+                    <input type="text" class="origin-departure" id="origin-time-departure">
+                    <label for="origin-time-arrival">Первоначальное время прибытия</label>
+                    <input type="text" class="origin-arrival" id="origin-time-arrival">
+                </div>
+                <div class="time-correction correction">
+                    <label for="correction-time-departure">Скорректированное время вылета</label>
+                    <input type="text" class="origin-departure" id="correction-time-departure">
+                    <label for="correction-time-arrival">Скорректированное время прибытия</label>
+                    <input type="text" class="origin-arrival" id="correction-time-arrival">
+                </div>
+            </section>
+            <section class="menu-aircraft">
+                <!-- typeAircraft -->
+                <!-- layoutAircraft -->
+            </section>
+            <input type="submit" value="SUBMIT">
+        </form>
+        <div class="pop-up output">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+
+    <script src="main.js" type="module"></script>
 </body>
 
 </html>

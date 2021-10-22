@@ -1,37 +1,25 @@
-section {
-  width: 100%;
+.container {
+    width: 100%;
+    padding: 20px;
 }
 
 .flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+section {
+    border: 1px solid #000;
+    padding: 15px;
+}
+
+input {
+    margin: 5px;
 }
 
 .hidden {
-  visibility: hidden; /* элемент невидим, но занимается место на странице и влияет на разметку*/
-}
-
-.btn-press {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
-.btn {
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #04aa6d;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  margin: 10px;
-}
-
-.btn:hover {
-  background-color: #3e8e41;
+    visibility: hidden;
+    /* элемент невидим, но занимается место на странице и влияет на разметку*/
 }
