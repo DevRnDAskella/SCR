@@ -28,8 +28,18 @@
                 <input type="radio" name='correction' id='correction' checked>
                 <label for="correction">CORRECTION</label>
 
-                <input type="radio" name='correction' id='cansel'>
-                <label for="cansel">CANCEL</label>
+                <input type="radio" name='correction' id='cancel'>
+                <label for="cancel">CANCEL</label>
+            </section>
+            <section class="flight-type">
+                <input type="radio" name="flight-type" id="regular">
+                <label for="regular">Регулярный</label>
+
+                <input type="radio" name="flight-type" id="empty">
+                <label for="empty">Перегон</label>
+
+                <input type="radio" name="flight-type" id="charter">
+                <label for="charter">Чартер</label>
             </section>
             <section class="menu-aircraft aircraft">
                 <label for="aircraft-select">Выберите ВС</label>
@@ -42,6 +52,7 @@
                 <input type="radio" id="aircraft-layout" name="aircraft-layout" checked disabled>
                 <label for="aircraft-layout">Компоновка ВС</label>
             </section>
+
             <section class='menu-airports airports'>
                 <input type="radio" id='vko' name="airport">
                 <label for="vko">VKO</label>
@@ -63,16 +74,7 @@
                     <label for="flight-arrival">Рейс прилета</label>
                     <input type="text" class="flight-arrival" id='flight-arrival'>
                 </section>
-                <section class="flight-type flex">
-                    <input type="radio" name="flight-type" id="regular">
-                    <label for="regular">Регулярный</label>
 
-                    <input type="radio" name="flight-type" id="empty">
-                    <label for="empty">Перегон</label>
-
-                    <input type="radio" name="flight-type" id="charter">
-                    <label for="charter">Чартер</label>
-                </section>
             </section>
             <section class="menu-time time flex">
                 <div class="time-origin origin">
@@ -90,14 +92,18 @@
             </section>
 
             <input type="reset" value="RESET">
-            <input type="submit" value="SUBMIT">
+            <button type="submit" id="submit">SUBMIT</button>
         </form>
+
         <div class="popup output-data hidden">
             <label for="output">Скорректируйте данные, если необходимо</label>
             <textarea id="output2" cols="30" rows="10">Некоторый текст</textarea>
         </div>
     </div>
 
+    <template id='template-element '>
+
+    </template>
     <script src="main.js" type="module"></script>
 </body>
 
