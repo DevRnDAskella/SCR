@@ -55,4 +55,20 @@ const airportsDataList = [{
     },
 ];
 
-export default airportsDataList;
+const aircraftsDataList = [
+    { aircraftNumber: 89036, type: 'SU9', layout: 103 },
+    { aircraftNumber: 89079, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89080, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89085, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89093, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89094, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89095, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89121, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89136, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89139, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89149, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89179, type: 'SU9', layout: 100 },
+    { aircraftNumber: 89180, type: 'SU9', layout: 100 },
+]
+
+export default { airportsDataList, aircraftsDataList };

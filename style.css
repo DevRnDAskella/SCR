@@ -23,3 +23,45 @@ input {
     visibility: hidden;
     /* элемент невидим, но занимается место на странице и влияет на разметку*/
 }
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.popup {
+    /* visibility: hidden; */
+    width: 30%;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    user-select: none;
+}
+
+.popup .popup-content {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.popup .hidden {
+    visibility: visible;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

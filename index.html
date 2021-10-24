@@ -15,7 +15,7 @@
         <form class="menu" action="#">
             <div class="menu-title"><span>МЕНЮ</span></div>
             <section class="arrival-or-departure">
-                <input type="radio" name="question" id="arrival">
+                <input type="radio" name="question" id="arrival" checked>
                 <label for="arrival">ПРИЛЕТАЕМ</label>
 
                 <input type="radio" name="question" id="departure">
@@ -25,11 +25,22 @@
                 <input type="radio" name='correction' id='new'>
                 <label for="new">NEW</label>
 
-                <input type="radio" name='correction' id='correction'>
+                <input type="radio" name='correction' id='correction' checked>
                 <label for="correction">CORRECTION</label>
 
                 <input type="radio" name='correction' id='cansel'>
                 <label for="cansel">CANCEL</label>
+            </section>
+            <section class="menu-aircraft aircraft">
+                <label for="aircraft-select">Выберите ВС</label>
+                <select name="aircrafts" id="aircraft-select">
+                    <option value="default">--Choose an option--</option>
+                </select>
+                <input type="radio" id="aircraft-type" name="type" checked disabled>
+                <label for="aircraft-type">Тип ВС</label>
+
+                <input type="radio" id="aircraft-layout" name="aircraft-layout" checked disabled>
+                <label for="aircraft-layout">Компоновка ВС</label>
             </section>
             <section class='menu-airports airports'>
                 <input type="radio" id='vko' name="airport">
@@ -47,7 +58,7 @@
             <section class="menu-flight flight">
                 <section class="flight-number">
                     <label for="flight-departure">Рейс вылета</label>
-                    <input type="text" class="flight-number" id='flight-departure'>
+                    <input type="text" class="flight-number" id='flight-departure' autofocus>
 
                     <label for="flight-arrival">Рейс прилета</label>
                     <input type="text" class="flight-arrival" id='flight-arrival'>
@@ -77,14 +88,13 @@
                     <input type="text" class="origin-arrival" id="correction-time-arrival">
                 </div>
             </section>
-            <section class="menu-aircraft">
-                <!-- typeAircraft -->
-                <!-- layoutAircraft -->
-            </section>
+
+            <input type="reset" value="RESET">
             <input type="submit" value="SUBMIT">
         </form>
-        <div class="pop-up output">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+        <div class="popup output-data hidden">
+            <label for="output">Скорректируйте данные, если необходимо</label>
+            <textarea id="output2" cols="30" rows="10">Некоторый текст</textarea>
         </div>
     </div>
 

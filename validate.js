@@ -1,27 +1,27 @@
-export function validateAll() {
+export default function validateAll() {
 
 }
 
-export function validateInputArrivaledFlightNumber() {
+// export function validateInputArrivaledFlightNumber() {
 
-}
+// }
 
-export function validateInputDeparturedFlightNumber() {
+// export function validateInputDeparturedFlightNumber() {
 
-}
+// }
 
-export function validateInputOriginTimeDeparture() {
+// export function validateInputOriginTimeDeparture() {
 
-}
+// }
 
-export function validateInputOriginTimeArrival() {
+// export function validateInputOriginTimeArrival() {
 
-}
+// }
 
-export function validateInputCorrectionTimeDeparture() {
+// export function validateInputCorrectionTimeDeparture() {
 
-}
+// }
 
-export function validateInputCorrectionTimeDeparture() {
+// export function validateInputCorrectionTimeDeparture() {
 
-}
+// }
