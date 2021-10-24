@@ -1,4 +1,4 @@
-const airportsDataList = [{
+export const airportsList = [{
         airportName: 'VKO',
         email: 'coordination@vnukovo.ru',
         terminalArrival: 'A',
@@ -55,7 +55,7 @@ const airportsDataList = [{
     },
 ];
 
-const aircraftsDataList = [
+export const aircraftsList = [
     { aircraftNumber: 89036, type: 'SU9', layout: 103 },
     { aircraftNumber: 89079, type: 'SU9', layout: 100 },
     { aircraftNumber: 89080, type: 'SU9', layout: 100 },
@@ -71,4 +71,4 @@ const aircraftsDataList = [
     { aircraftNumber: 89180, type: 'SU9', layout: 100 },
 ]
 
-export default { airportsDataList, aircraftsDataList };
+export default { airportsList, aircraftsList };

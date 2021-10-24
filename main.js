@@ -1,6 +1,5 @@
-import db from './DataBase.js';
+import { airportsList, aircraftsList } from './DataBase.js';
 // import validate from './validate.js';
-
 
 // Variable
 
@@ -27,7 +26,7 @@ const data = {
         correctionTimeArrival: undefined, // input !
     },
     aircraft: {
-        aircraftNumber: undefined,
+        number: undefined,
         aircraftType: undefined,
         aircraftLayout: undefined,
     },
@@ -43,16 +42,14 @@ const data = {
 }
 
 // Handlers
-const aircraftNumberHandler = form.elements.aircrafts.addEventListener('change', () => {
-    const selection = form.elements.aircrafts;
-    data.aircraft.aircraftNumber = selection.options[selection.selectedIndex].value;
-});
 
 const submitHandler = document.querySelector('#submit').addEventListener('click', (e) => {
     e.preventDefault();
     const outputText = popup.querySelector('textarea');
-    data.aircraft.aircraftType = setAircraftType(data.aircraft.aircraftNumber, db);
-    data.aircraft.aircraftLayout = setAircraftLayout(data.aircraft.aircraftNumber, db);
+    data.aircraft.number = setnumber(form);
+    data.aircraft.aircraftType = setAircraftType(data.aircraft.number, aircraftsList);
+    data.aircraft.aircraftLayout = setAircraftLayout(data.aircraft.number, aircraftsList);
+    data.modeCorrection = setModeCorrection(form);
     // popup.classList.remove('hidden');
     // outputText.value = renderData(data);
     console.log(data)
@@ -61,7 +58,7 @@ const submitHandler = document.querySelector('#submit').addEventListener('click'
 // ========================================================================
 
 // === Logic ===
-renderAircraftsList(form, db);
+renderAircraftsList(form, aircraftsList);
 
 
 
@@ -77,8 +74,9 @@ function isSlotedAirport() {
 
 }
 
-function setModeCorrection() {
-    return;
+function setModeCorrection(form) {
+    const radio = form.elements.correction;
+    return radio.value || null;
 }
 
 function setFlightNumber() {
@@ -113,51 +111,69 @@ function setCurrentDate(date) {
 }
 
 function setCurrentSeason(currentTime) {
-    return `W21`; //TODO write function
+    return `
+            W21 `; //TODO write function
 }
 
-function setAircraftType(aircraftNumber, database) {
-    return database.aircraftsDataList.reduce((acc, el) => {
-        if (el.aircraftNumber == aircraftNumber) {
+function setnumber(form) {
+    const selection = form.elements.aircrafts;
+    return selection.options[selection.selectedIndex].value || null;
+}
+
+function setAircraftType(number, database) {
+    return database.reduce((acc, el) => {
+        if (el.number == number) {
             acc = el.type;
         }
         return acc;
     }, null);
 }
 
-function setAircraftLayout(aircraftNumber, database) {
-    return database.aircraftsDataList.filter(el => {
-        return el.aircraftNumber == data.aircraft.aircraftNumber;
-    })[0].layout;
+function setAircraftLayout(number, database) {
+    return database.reduce((acc, el) => {
+        if (el.number == number) {
+            acc = el.layout;
+        }
+        return acc;
+    }, null);
 }
 
 function vilidateData() {
     //  TODO будет отдельный js модуль под них
 }
 
+
+
 // === RenderData ===
 function renderAircraftsList(form, data) {
-    return data.aircraftsDataList.map(elem => {
+    return data.map(elem => {
         const option = document.createElement('option');
-        option.setAttribute('value', elem.aircraftNumber);
+        option.setAttribute('value', elem.number);
         option.textContent = elem.aircraftNumber;
         form.elements.aircrafts.appendChild(option);
     });
 }
 
+// function renderAirportsList(form, data) {
+//     return data.map(el => {
+//         const airports = document.querySelector('.menu-airports');
+//         const template = document.querySelector('.template-elements').content;
+//         // airports.appendChild(template.)
+//     });
+// }
+
 function renderData(data) {
     // if (data.modeCorrection == 'new')
     return `
-      SCR
-      ${data.setting.emailResponse}
-      ${data.time.currentSeason}
-      ${data.time.currentDate}
-      ${data.airport.airportName}
-      
-      ${data.aircraft.aircraftNumber}
-      ${data.aircraft.aircraftType}
-      ${data.aircraft.aircraftLayout}
+            SCR $ { data.setting.emailResponse }
+            $ { data.time.currentSeason }
+            $ { data.time.currentDate }
+            $ { data.airport.airportName }
 
-      ${data.setting.textAdded}
-    `;
+            $ { data.aircraft.number }
+            $ { data.aircraft.aircraftType }
+            $ { data.aircraft.aircraftLayout }
+
+            $ { data.setting.textAdded }
+            `;
 }

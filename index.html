@@ -22,17 +22,17 @@
                 <label for="departure">ВЫЛЕТАЕМ</label>
             </section>
             <section class="menu-correction">
-                <input type="radio" name='correction' id='new'>
+                <input type="radio" name='correction' id='new' value="new">
                 <label for="new">NEW</label>
 
-                <input type="radio" name='correction' id='correction' checked>
+                <input type="radio" name='correction' id='correction' value="correction" checked>
                 <label for="correction">CORRECTION</label>
 
-                <input type="radio" name='correction' id='cancel'>
+                <input type="radio" name='correction' value="cancel" id='cancel'>
                 <label for="cancel">CANCEL</label>
             </section>
             <section class="flight-type">
-                <input type="radio" name="flight-type" id="regular">
+                <input type="radio" name="flight-type" id="regular" checked>
                 <label for="regular">Регулярный</label>
 
                 <input type="radio" name="flight-type" id="empty">
@@ -101,8 +101,11 @@
         </div>
     </div>
 
-    <template id='template-element '>
-
+    <template id='template-elements'>
+        <div class="output-airports">
+            <input type="radio" id='' name="">
+            <label for=""></label>
+        </div>
     </template>
     <script src="main.js" type="module"></script>
 </body>
