@@ -34,16 +34,6 @@ export const airportsList = [{
             'BZK', 'ROV', 'KRR', 'KLF', 'ESL',
         ]
     },
-
-    {
-        airportName: 'LED',
-        email: 'coordination@vnukovo.ru',
-        terminalArrival: 'A',
-        terminalDeparture: 'A',
-        directionsList: [
-
-        ]
-    },
     {
         airportName: 'MSQ',
         email: 'coordination@vnukovo.ru', // ???

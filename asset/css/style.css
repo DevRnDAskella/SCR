@@ -24,6 +24,9 @@ input {
     /* элемент невидим, но занимается место на странице и влияет на разметку*/
 }
 
+
+/* === POPUP === */
+
 .popup {
     position: relative;
     display: inline-block;
@@ -31,7 +34,6 @@ input {
 }
 
 .popup {
-    /* visibility: hidden; */
     width: 30%;
     background-color: #555;
     color: #fff;
@@ -41,6 +43,17 @@ input {
     position: absolute;
     z-index: 1;
     user-select: none;
+}
+
+.popup textarea {
+    background-color: rgb();
+    resize: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #cfd0d3;
+    font-size: 18px;
+    padding-left: 15px;
 }
 
 .popup .popup-content {
