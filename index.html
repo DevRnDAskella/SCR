@@ -55,7 +55,7 @@
             <section class="menu-flight flight">
                 <section class="flight-number">
                     <label for="flight-departure">Рейс вылета</label>
-                    <input type="text" class="flight-number" id='flight-departure' autofocus>
+                    <input type="number" class="flight-number" id='flight-departure' minlength="10">
 
                     <label for="flight-arrival">Рейс прилета</label>
                     <input type="text" class="flight-arrival" id='flight-arrival'>
@@ -81,10 +81,10 @@
             <button type="submit" id="submit">SUBMIT</button>
         </form>
 
-        <div class="popup output-data wrap">
+        <div class="popup output-data hidden">
             <img src="./asset/svg/close_icon.svg" class='popup-close' width="15" height="15">
             <label for="output">Скорректируйте данные, если необходимо</label>
-            <textarea id="output2" cols="40" rows="15">Некоторый текст</textarea>
+            <textarea id="output-data" cols="40" rows="15">Некоторый текст</textarea>
         </div>
     </div>
 

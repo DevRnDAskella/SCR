@@ -1,11 +1,9 @@
 import { airportsList, aircraftsList } from '../../db/DataBase.js';
-// import validate from './asset/js/validate.js';
+import { validateAll } from './validate.js';
 
-// Variable
+// === Variable ===
 
-const currentTime = new Date().toUTCString();
 const form = document.forms[0];
-
 const popup = document.querySelector('.popup');
 
 // ========================================================================
@@ -16,12 +14,12 @@ const data = {
         isSloted: undefined,
     },
     time: {
-        currentDate: setCurrentDate(currentTime),
-        currentSeason: setCurrentSeason(currentTime), // TODO написать функцию
-        originTimeArrival: undefined, // input !
-        originTimeDeparture: undefined, // input !
-        correctionTimeDeparture: undefined, // input !
-        correctionTimeArrival: undefined, // input !
+        currentDate: undefined,
+        currentSeason: undefined,
+        originTimeArrival: undefined,
+        originTimeDeparture: undefined,
+        correctionTimeDeparture: undefined,
+        correctionTimeArrival: undefined,
     },
     aircraft: {
         aircraftNumber: undefined,
@@ -29,8 +27,8 @@ const data = {
         aircraftLayout: undefined,
     },
     flight: {
-        flightType: undefined, // input
-        flightKind: undefined, // input
+        flightType: undefined,
+        flightKind: undefined,
     },
     modeCorrection: undefined,
     setting: {
@@ -39,23 +37,22 @@ const data = {
     },
 }
 
-// === Logic ===
+// === LOGIC ===
 
 renderAircraftsList(form, aircraftsList);
 renderAirportsList(form, airportsList);
 
-
 // ========================================================================
 
-// Handlers
+// ==== HANDLERS ====
 for (const item of form.elements.airports) {
-    item.addEventListener('change', () => {
+    const radioChangeHandler = item.addEventListener('change', () => {
         data.airport.airportNameDeparture = setAirportNameDeparture(form);
         let promise = new Promise((resolve, reject) => {
             resolve(renderAirportsDirectionList(form, airportsList, data.airport.airportNameDeparture));
         }).then(() => {
             for (const item of form.elements.airportsDirect) {
-                item.addEventListener('change', () => {
+                const radioChangeHandler = item.addEventListener('change', () => {
                     data.airport.airportNameArrival = setAirportNameArrival(form);
                 })
             }
@@ -63,12 +60,57 @@ for (const item of form.elements.airports) {
     })
 }
 
-popup.querySelector('.popup-close').addEventListener('click', () => {
-    popup.classList.add('hidden');
+const documentPressKeyHandler = document.addEventListener('keydown', e => {
+    e.preventDefault();
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        setData(form, data);
+        renderData(document.querySelector('#output-data'), data);
+        openPopup(popup);
+        console.log(data);
+
+        const popupCloseKeyHandler = document.addEventListener('keydown', function popupCloseKeyHandler(e) {
+            if (e.key === 'Escape') {
+                closePopup(popup);
+                document.removeEventListener('keydown', popupCloseKeyHandler);
+            }
+        });
+
+        const popupCloseHandler = popup.querySelector('.popup-close').addEventListener('click', (e) => {
+            closePopup(popup);
+            document.removeEventListener('keydown', popupCloseKeyHandler);
+        });
+
+    }
 });
 
-const submitHandler = document.querySelector('#submit').addEventListener('click', (e) => {
+const submitClickHandler = document.querySelector('#submit').addEventListener('click', (e) => {
     e.preventDefault();
+    setData(form, data);
+    renderData(document.querySelector('#output-data'), data);
+    openPopup(popup);
+    console.log(data);
+
+    const popupCloseKeyHandler = document.addEventListener('keydown', function popupCloseKeyHandler(e) {
+        if (e.key === 'Escape') {
+            closePopup(popup);
+            document.removeEventListener('keydown', popupCloseKeyHandler);
+        }
+    });
+
+    const popupCloseHandler = popup.querySelector('.popup-close').addEventListener('click', (e) => {
+        closePopup(popup);
+        document.removeEventListener('keydown', popupCloseKeyHandler);
+    });
+})
+
+// ========================================================================
+
+// === Function ===
+
+function setData(form, data) {
+    const currentTime = new Date().toUTCString();
+
     data.aircraft.aircraftNumber = setAircraftNumber(form);
     data.aircraft.aircraftType = setAircraftType(data.aircraft.aircraftNumber, aircraftsList);
     data.aircraft.aircraftLayout = setAircraftLayout(data.aircraft.aircraftNumber, aircraftsList);
@@ -79,20 +121,14 @@ const submitHandler = document.querySelector('#submit').addEventListener('click'
 
     data.flight.flightType = setFlightType(form);
 
+    data.time.currentDate = setCurrentDate(currentTime);
+    data.time.currentSeason = setCurrentSeason(currentTime);
     data.time.originTimeDeparture = setOriginTimeDeparture(form);
     data.time.originTimeArrival = setOriginTimeArrival(form);
     data.time.correctionTimeDeparture = setCorrectionTimeDeparture(form);
     data.time.correctionTimeArrival = setCorrectionTimeArrival(form);
+}
 
-    const outputText = popup.querySelector('textarea');
-    outputText.value = renderData(data);
-    // popup.classList.remove('hidden');
-    console.log(data);
-})
-
-// ========================================================================
-
-// === Function === 
 function setAirportNameDeparture(form) {
     return form.elements.airports.value || null;
 }
@@ -167,11 +203,17 @@ function setAircraftLayout(aircraftNumber, database) {
     }, null);
 }
 
+function closePopup(popup) {
+    popup.classList.add('hidden');
+}
+
+function openPopup(popup) {
+    popup.classList.remove('hidden');
+}
+
 function vilidateData() {
     //  TODO будет отдельный js модуль под них
 }
-
-
 
 // === RenderData ===
 function renderAircraftsList(form, data) {
@@ -215,19 +257,17 @@ function renderAirportsDirectionList(form, data, airportName) {
     });
 }
 
-function renderData(data) {
-    // if (data.modeCorrection == 'new')
-    return `
-SCR\t
-${ data.setting.emailResponse }
-${ data.time.currentSeason }
-${ data.time.currentDate }
-${ data.airport.airportName }
+function renderData(outputElement, data) {
+    outputElement.value = `
+SCR
+${data.setting.emailResponse}
+${data.time.currentSeason}
+${data.time.currentDate}
+${data.airport.airportName}
 
-${ data.aircraft.aircraftNumber }
-${ data.aircraft.aircraftType }
-${ data.aircraft.aircraftLayout }
+${data.aircraft.aircraftNumber}
+${data.aircraft.aircraftType}
+${data.aircraft.aircraftLayout}
 
- ${ data.setting.textAdded }
-            `;
+${data.setting.textAdded}`;
 }
