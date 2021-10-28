@@ -1,8 +1,7 @@
 export const airportsList = [{
         airportName: 'VKO',
         email: 'coordination@vnukovo.ru',
-        terminalArrival: 'A',
-        terminalDeparture: 'A',
+        terminal: 'A',
         directionsList: [
             'ROV', 'KRR', 'ESL', 'PKV',
         ]
@@ -10,8 +9,7 @@ export const airportsList = [{
     {
         airportName: 'AER',
         email: 'coordination@vnukovo.ru', // ???
-        terminalArrival: 'A', // ???
-        terminalDeparture: 'A', // ???
+        terminal: 'A', // ???
         directionsList: [
             'ROV', 'MRV', 'PKV', 'KLF', 'IAR', 'MCX', 'BZK'
         ]
@@ -19,17 +17,15 @@ export const airportsList = [{
     {
         airportName: 'IST',
         email: 'coordination@vnukovo.ru', // ???
-        terminalArrival: 'A', // ???
-        terminalDeparture: 'A', // ???
+        terminal: 'A', // ???
         directionsList: [
-            'ROV',
+            'ROV'
         ]
     },
     {
         airportName: 'LED',
         email: 'coordination@vnukovo.ru', // ???
-        terminalArrival: 'A', // ???
-        terminalDeparture: 'A', // ???
+        terminal: 'A', // ???
         directionsList: [
             'BZK', 'ROV', 'KRR', 'KLF', 'ESL',
         ]
@@ -37,8 +33,7 @@ export const airportsList = [{
     {
         airportName: 'MSQ',
         email: 'coordination@vnukovo.ru', // ???
-        terminalArrival: 'A', // ???
-        terminalDeparture: 'A', // ???
+        terminal: 'A', // ???
         directionsList: [
             'KLF', 'KRR', 'ROV', 'MRV'
         ]

@@ -15,24 +15,14 @@
     <div class="container flex">
         <form class="menu" action="#">
             <div class="menu-title"><span>МЕНЮ</span></div>
-            <section class="menu-sloted sloted">
-                <input type="radio" name="question" value='0' id="arrival" checked>
+            <section class="menu-sloted sloted flex">
+                <input type="radio" name="question" value='1' id="arrival" checked>
                 <label for="arrival">ПРИЛЕТАЕМ</label>
 
-                <input type="radio" name="question" value="1" id="departure">
+                <input type="radio" name="question" value="0" id="departure">
                 <label for="departure">ВЫЛЕТАЕМ</label>
             </section>
-            <section class="menu-correction">
-                <input type="radio" name='correction' id='new' value="new">
-                <label for="new">NEW</label>
-
-                <input type="radio" name='correction' id='correction' value="correction" checked>
-                <label for="correction">CORRECTION</label>
-
-                <input type="radio" name='correction' value="cancel" id='cancel'>
-                <label for="cancel">CANCEL</label>
-            </section>
-            <section class="menu-flight flight-type">
+            <section class="menu-flight flight-type flex">
                 <input type="radio" value='j' name="flights" id="regular" checked>
                 <label for="regular">Регулярный</label>
 
@@ -42,7 +32,18 @@
                 <input type="radio" value='l' name="flights" id="charter">
                 <label for="charter">Чартер</label>
             </section>
-            <section class="menu-aircraft aircraft">
+            <section class="menu-correction flex">
+                <input type="radio" name='correction' id='new' value="new">
+                <label for="new">NEW</label>
+
+                <input type="radio" name='correction' id='correction' value="correction">
+                <label for="correction">CORRECTION</label>
+
+                <input type="radio" name='correction' value="cancel" id='cancel'>
+                <label for="cancel">CANCEL</label>
+            </section>
+            <section class="menu-count flex"></section>
+            <section class="menu-aircraft aircraft flex">
                 <label for="aircraft-select">Выберите ВС</label>
                 <select name="aircrafts" id="aircraft-select">
                     <option value="default">--Choose an option--</option>
@@ -52,39 +53,31 @@
                 <div class="airports-base flex"></div>
                 <div class="airports-direction flex"></div>
             </section>
-            <section class="menu-flight flight">
+            <section class="menu-flight flight flex">
                 <section class="flight-number">
-                    <label for="flight-departure">Рейс вылета</label>
-                    <input type="number" class="flight-number" id='flight-departure' minlength="10">
-
-                    <label for="flight-arrival">Рейс прилета</label>
-                    <input type="text" class="flight-arrival" id='flight-arrival'>
+                    <label for="flight-departure">Номер рейса</label>
+                    <input type="text" class="flight-number" id='flight-departure' required>
                 </section>
-
             </section>
             <section class="menu-time time flex">
                 <div class="time-origin origin">
-                    <label for="origin-time-departure">Первоначальное время вылета</label>
-                    <input type="text" class="origin-departure" id="origin-time-departure" name="originsDeparture">
-                    <label for="origin-time-arrival">Первоначальное время прибытия</label>
-                    <input type="text" class="origin-arrival" id="origin-time-arrival" name="originsArrival">
+                    <label for="origin-time-departure">Время вылета</label>
+                    <input required type="text" class="origin-departure" id="origin-time-departure" name="originsDeparture">
                 </div>
                 <div class="time-correction correction">
-                    <label for="correction-time-departure">Скорректированное время вылета</label>
-                    <input type="text" class="correction-departure" id="correction-time-departure" name='correctionDeparture'>
-                    <label for="correction-time-arrival">Скорректированное время прибытия</label>
-                    <input type="text" class="correction-arrival" id="correction-time-arrival" name='correctionArrival'>
                 </div>
             </section>
-
-            <input type="reset" value="RESET">
-            <button type="submit" id="submit">SUBMIT</button>
+            <section class="btns flex">
+                <input type="reset" value="RESET">
+                <button type="submit" id="submit">SUBMIT</button>
+            </section>
         </form>
 
         <div class="popup output-data hidden">
             <img src="./asset/svg/close_icon.svg" class='popup-close' width="15" height="15">
             <label for="output">Скорректируйте данные, если необходимо</label>
-            <textarea id="output-data" cols="40" rows="15">Некоторый текст</textarea>
+            <textarea id="output-data" cols="45
+            " rows="15">Некоторый текст</textarea>
         </div>
     </div>
 
@@ -96,5 +89,7 @@
     </template>
     <script src="./asset/js/main.js" type="module"></script>
 </body>
+
+</html>
 
 </html>
