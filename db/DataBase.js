@@ -56,4 +56,8 @@ export const aircraftsList = [
     { aircraftNumber: 89180, type: 'SU9', layout: 100 },
 ]
 
-export default { airportsList, aircraftsList };
+export const quantityFlightsList = [1, 2];
+
+// TODO написать мапу ключ значение -> correction - 'C'
+
+export default { airportsList, aircraftsList, quantityFlightsList };

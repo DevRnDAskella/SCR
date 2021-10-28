@@ -27,6 +27,11 @@ body {
     transition: all 300ms linear;
 }
 
+.time-secondary,
+.time-origin {
+    margin: 50px;
+}
+
 .menu-title {
     text-align: center;
     font-size: 1.3rem;
@@ -82,6 +87,10 @@ section {
 .hidden {
     visibility: hidden;
     /* элемент невидим, но занимается место на странице и влияет на разметку*/
+}
+
+.none {
+    display: none;
 }
 
 

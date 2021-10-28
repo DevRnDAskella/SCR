@@ -42,7 +42,7 @@
                 <input type="radio" name='correction' value="cancel" id='cancel'>
                 <label for="cancel">CANCEL</label>
             </section>
-            <section class="menu-count flex"></section>
+            <section class="menu-quantity flex"></section>
             <section class="menu-aircraft aircraft flex">
                 <label for="aircraft-select">Выберите ВС</label>
                 <select name="aircrafts" id="aircraft-select">
@@ -54,30 +54,43 @@
                 <div class="airports-direction flex"></div>
             </section>
             <section class="menu-flight flight flex">
-                <section class="flight-number">
-                    <label for="flight-departure">Номер рейса</label>
-                    <input type="text" class="flight-number" id='flight-departure' required>
+                <section class="flight-number-main">
+                    <label for="flight-main">Номер рейса (главный)</label>
+                    <input type="text" class="flight-main" id='flight-main' required>
+                </section>
+                <section class="flight-number-secondary none">
+                    <label for="flight-secondary">Номер рейса (вторичный)</label>
+                    <input type="text" class="flight-secondary" id='flight-secondary'>
                 </section>
             </section>
-            <section class="menu-time time flex">
-                <div class="time-origin origin">
-                    <label for="origin-time-departure">Время вылета</label>
-                    <input required type="text" class="origin-departure" id="origin-time-departure" name="originsDeparture">
+            <section class="menu-time time">
+                <div class="time-main origin">
+                    <label for="origin-time-main">Время главного а/п (базовое)</label>
+                    <input required type="text" class="origin-time" id="origin-time-main" name="originMain">
+
+                    <label for="correction-time-main">Время главного а/п (скорректированное)</label>
+                    <input required type="text" class="correction-time" id="correction-time-main" name="correctionMain">
+                </div>
+                <div class="time-secondary hidden">
+                    <label for="origin-time-secondary">Время второго а/п (базовое)</label>
+                    <input required type="text" class="origin-time" id="origin-time-secondary" name="originSecondary">
+
+                    <label for="correction-time-secondary">Время второго а/п (скорректированное)</label>
+                    <input required type="text" class="correction-time" id="correction-time-secondary" name="correctioSecondary">
                 </div>
                 <div class="time-correction correction">
                 </div>
             </section>
             <section class="btns flex">
-                <input type="reset" value="RESET">
-                <button type="submit" id="submit">SUBMIT</button>
+                <input type="reset" value="RESET" class='btn'>
+                <button type="submit" id="submit" class="btn">SUBMIT</button>
             </section>
         </form>
 
         <div class="popup output-data hidden">
             <img src="./asset/svg/close_icon.svg" class='popup-close' width="15" height="15">
             <label for="output">Скорректируйте данные, если необходимо</label>
-            <textarea id="output-data" cols="45
-            " rows="15">Некоторый текст</textarea>
+            <textarea id="output-data" cols="50" rows="15">Некоторый текст</textarea>
         </div>
     </div>
 
@@ -85,6 +98,10 @@
         <div class="airport-element">
             <input type="radio" id='' name="">
             <label for=""></label>
+        </div>
+        <div class='quantity-flights'>
+          <input type="radio" id='' name="">
+          <label for=""></label>
         </div>
     </template>
     <script src="./asset/js/main.js" type="module"></script>
