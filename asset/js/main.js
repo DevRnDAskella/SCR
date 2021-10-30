@@ -12,6 +12,7 @@ const PHRASE_TERMINAL_ARRIVAL = 'TA';
 const PHRASE_TERMINAL_DEPARTURE = 'TD';
 const PHRASE_AIRCRAFT_REGISTRATION = 'RE';
 
+
 // ========================================================================
 const data = {
     modeCorrection: undefined,
@@ -184,7 +185,7 @@ function setIsArrivaled(form) {
 function setAirportTerminal(data, database) {
     return database.reduce((acc, el) => {
         if (el.airportName == data.airport.airportNameMain) {
-            acc = el.terminal;
+            acc = el.airportTerminal;
         }
         return acc;
     }, null);;
