@@ -6,8 +6,11 @@ export function validateAll() {
         }
     })
 }
+export function validateValue(value, regexp) {
+    return regexp.test(value);
+}
 
-export default { validateAll }
+export default { validateAll, validateValue }
 
 // export function validateInputArrivaledFlightNumber() {
 

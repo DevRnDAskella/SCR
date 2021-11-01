@@ -1,9 +1,8 @@
-import { airportsList, aircraftsList, quantityFlightsList } from '../../db/DataBase.js';
-import { validateAll } from './validate.js';
+import { airportsList, aircraftsList, } from '../../db/DataBase.js';
+import { validateValue } from './validate.js';
 
 // === Variable ===
 
-const form = document.forms[0];
 const popup = document.querySelector('.popup');
 const ENTER_KEY = 'Enter';
 const TYPE_TELEGRAM = 'SCR';
@@ -12,8 +11,8 @@ const PHRASE_TERMINAL_ARRIVAL = 'TA';
 const PHRASE_TERMINAL_DEPARTURE = 'TD';
 const PHRASE_AIRCRAFT_REGISTRATION = 'RE';
 
-
 // ========================================================================
+
 const data = {
     modeCorrection: undefined,
     aircraft: {
@@ -28,10 +27,9 @@ const data = {
         airportTerminal: undefined,
     },
     flight: {
-        flightNumberMain: undefined,
+        flightNumber: undefined,
         flightNumberSecond: undefined,
         flightType: undefined,
-        quantityFlights: undefined,
     },
     time: {
         currentDate: undefined,
@@ -47,101 +45,118 @@ const data = {
     },
 }
 
+document.addEventListener('input', e => {
+    // TODO написать функцию
+    if (e.target.classList.contains('input-flight-number__input')) {
+        if (validateValue(e.target.value, /^\d{3}$/)) {
+            data.flight.flightNumber = e.target.value;
+        }
+    }
+})
+
 // === LOGIC ===
 
-renderAircraftsList(form, aircraftsList);
-renderAirportsList(form, airportsList);
+
+
+
+
+
+
+
+
 
 // ========================================================================
 
+
+
 // ==== HANDLERS ====
-for (const item of form.elements.airports) {
-    const radioChangeHandler = item.addEventListener('change', () => {
-        data.airport.airportNameMain = setAirportNameMain(form);
-        let promise = new Promise((resolve, reject) => {
-            resolve(renderAirportsDirectionList(form, airportsList, data.airport.airportNameMain));
-        }).then(() => {
-            // TODO: CRUTCH
-            try {
-                for (const item of form.elements.airportsDirect) {
-                    const radioChangeHandler = item.addEventListener('change', () => {
-                        data.airport.airportNameSecondary = setAirportNameSecondary(form);
-                    })
-                }
-            } catch (error) {
-                form.elements.airportsDirect.addEventListener('change', () => {
-                    data.airport.airportNameSecondary = setAirportNameSecondary(form);
-                });
-            }
+// for (const item of form.elements.airports) {
+//     const radioChangeHandler = item.addEventListener('change', () => {
+//         data.airport.airportNameMain = setAirportNameMain(form);
+//         let promise = new Promise((resolve, reject) => {
+//             resolve(renderAirportsDirectionList(form, airportsList, data.airport.airportNameMain));
+//         }).then(() => {
+//             // TODO: CRUTCH
+//             try {
+//                 for (const item of form.elements.airportsDirect) {
+//                     const radioChangeHandler = item.addEventListener('change', () => {
+//                         data.airport.airportNameSecondary = setAirportNameSecondary(form);
+//                     })
+//                 }
+//             } catch (error) {
+//                 form.elements.airportsDirect.addEventListener('change', () => {
+//                     data.airport.airportNameSecondary = setAirportNameSecondary(form);
+//                 });
+//             }
 
-        }).then(() => { data.airport.airportNameMain = setAirportNameMain(form) });
-    })
-}
+//         }).then(() => { data.airport.airportNameMain = setAirportNameMain(form) });
+//     })
+// }
 
-document.addEventListener('change', e => {
-    if (e.target.id === 'correction') {
-        renderQuantityFlights(form, quantityFlightsList);
-        const onInputChangeHandler = document.addEventListener('change', function inputQuantityFlightsHandler(e) {
-            if (e.target.name === 'quantity') {
-                data.flight.quantityFlights = e.target.value;
-                if (e.target.value > 1) {
-                    showCorrectionSecondaryBlock('.time-secondary');
-                    dispayBlockTimeSecondary('.flight-number-secondary');
-                } else {
-                    hideCorrectionSecondaryBlock('.time-secondary');
-                    noneDispayBlockTimeSecondary('.flight-number-secondary');
-                }
-            }
-        })
-    } else if (e.target.id && e.target.id === 'new') {
-        setEmptyBlock('.menu-quantity');
-    } else if (e.target.id && e.target.id === 'cancel') {
-        setEmptyBlock('.menu-quantity');
-    }
-})
+// document.addEventListener('change', e => {
+//     if (e.target.id === 'correction') {
+//         renderQuantityFlights(form, quantityFlightsList);
+//         const onInputChangeHandler = document.addEventListener('change', function inputQuantityFlightsHandler(e) {
+//             if (e.target.name === 'quantity') {
+//                 data.flight.quantityFlights = e.target.value;
+//                 if (e.target.value > 1) {
+//                     showCorrectionSecondaryBlock('.time-secondary');
+//                     dispayBlockTimeSecondary('.flight-number-secondary');
+//                 } else {
+//                     hideCorrectionSecondaryBlock('.time-secondary');
+//                     noneDispayBlockTimeSecondary('.flight-number-secondary');
+//                 }
+//             }
+//         })
+//     } else if (e.target.id && e.target.id === 'new') {
+//         setEmptyBlock('.menu-quantity');
+//     } else if (e.target.id && e.target.id === 'cancel') {
+//         setEmptyBlock('.menu-quantity');
+//     }
+// })
 
-const documentPressKeyHandler = document.addEventListener('keydown', e => {
-    if (e.key === ENTER_KEY) {
-        e.preventDefault();
-        setData(form, data);
-        renderData(document.querySelector('#output-data'), data => collectDataByPattern(data));
-        openPopup(popup);
-        console.log(data);
+// const documentPressKeyHandler = document.addEventListener('keydown', e => {
+//     if (e.key === ENTER_KEY) {
+//         e.preventDefault();
+//         setData(form, data);
+//         renderData(document.querySelector('#output-data'), data => collectDataByPattern(data));
+//         openPopup(popup);
+//         console.log(data);
 
-        const popupCloseKeyHandler = document.addEventListener('keydown', function popupCloseKeyHandler(e) {
-            if (e.key === 'Escape') {
-                closePopup(popup);
-                document.removeEventListener('keydown', popupCloseKeyHandler);
-            }
-        });
+//         const popupCloseKeyHandler = document.addEventListener('keydown', function popupCloseKeyHandler(e) {
+//             if (e.key === 'Escape') {
+//                 closePopup(popup);
+//                 document.removeEventListener('keydown', popupCloseKeyHandler);
+//             }
+//         });
 
-        const popupCloseHandler = popup.querySelector('.popup-close').addEventListener('click', (e) => {
-            closePopup(popup);
-            document.removeEventListener('keydown', popupCloseKeyHandler);
-        });
+//         const popupCloseHandler = popup.querySelector('.popup-close').addEventListener('click', (e) => {
+//             closePopup(popup);
+//             document.removeEventListener('keydown', popupCloseKeyHandler);
+//         });
 
-    }
-});
+//     }
+// });
 
-const submitClickHandler = document.querySelector('#submit').addEventListener('click', (e) => {
-    e.preventDefault();
-    setData(form, data);
-    renderData(document.querySelector('#output-data'), (data) => collectDataByPattern(data));
-    openPopup(popup);
-    console.log(data);
+// const submitClickHandler = document.querySelector('#submit').addEventListener('click', (e) => {
+//     e.preventDefault();
+//     setData(form, data);
+//     renderData(document.querySelector('#output-data'), (data) => collectDataByPattern(data));
+//     openPopup(popup);
+//     console.log(data);
 
-    const popupCloseKeyHandler = document.addEventListener('keydown', function popupCloseKeyHandler(e) {
-        if (e.key === 'Escape') {
-            closePopup(popup);
-            document.removeEventListener('keydown', popupCloseKeyHandler);
-        }
-    });
+//     const popupCloseKeyHandler = document.addEventListener('keydown', function popupCloseKeyHandler(e) {
+//         if (e.key === 'Escape') {
+//             closePopup(popup);
+//             document.removeEventListener('keydown', popupCloseKeyHandler);
+//         }
+//     });
 
-    const popupCloseHandler = popup.querySelector('.popup-close').addEventListener('click', (e) => {
-        closePopup(popup);
-        document.removeEventListener('keydown', popupCloseKeyHandler);
-    });
-})
+//     const popupCloseHandler = popup.querySelector('.popup-close').addEventListener('click', (e) => {
+//         closePopup(popup);
+//         document.removeEventListener('keydown', popupCloseKeyHandler);
+//     });
+// })
 
 // ========================================================================
 
@@ -260,10 +275,6 @@ function closePopup(popup) {
 
 function openPopup(popup) {
     popup.classList.remove('hidden');
-}
-
-function vilidateData() {
-    //  TODO будет отдельный js модуль под них
 }
 
 // === RenderData ===

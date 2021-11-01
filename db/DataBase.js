@@ -1,9 +1,26 @@
-export const airportsList = [
-    { airportName: 'VKO', airportTerminal: 'A', directionsList: ['ROV', 'KRR', 'ESL', 'PKV'] },
-    { airportName: 'IST', airportTerminal: 'A', directionsList: ['ROV', 'KRR', 'ESL', 'PKV'] },
-    { airportName: 'SIP', airportTerminal: 'A', directionsList: ['ROV', 'KRR', 'ESL', 'PKV'] },
-    { airportName: 'AER', airportTerminal: 'A', directionsList: ['ROV', 'KRR', 'ESL', 'PKV'] },
-    { airportName: 'MEQ', airportTerminal: 'A', directionsList: ['ROV', 'KRR', 'ESL', 'PKV'] },
+export const airportsList = [{
+        airportName: 'VKO',
+        airportTerminal: 'A',
+        isSloted: true,
+        airportEmail: 'coordination@vnukovo.ru',
+        priority: 1,
+    },
+    {
+        airportName: 'IST',
+        airportTerminal: 'A',
+    },
+    {
+        airportName: 'SIP',
+        airportTerminal: 'A',
+    },
+    {
+        airportName: 'AER',
+        airportTerminal: 'A',
+    },
+    {
+        airportName: 'MSQ',
+        airportTerminal: 'A',
+    },
 ];
 
 export const aircraftsList = [
@@ -25,6 +42,4 @@ export const aircraftsList = [
 
 ];
 
-export const quantityFlightsList = [1, 2];
-
-export default { airportsList, aircraftsList, quantityFlightsList };
+export default { airportsList, aircraftsList, };

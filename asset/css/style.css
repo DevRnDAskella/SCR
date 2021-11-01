@@ -27,15 +27,31 @@ body {
     transition: all 300ms linear;
 }
 
-.time-secondary,
-.time-origin {
-    margin: 50px;
+.container {
+    width: 80%;
+    padding: 2rem;
 }
 
-.menu-title {
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: 700;
+.wrapper--flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu__actions {
+    margin-top: 3rem;
+}
+
+.menu__actions--flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input-data__item {
+    margin-top: 3rem;
 }
 
 input,
@@ -66,22 +82,11 @@ input[type="radio"]:checked+label {
     transition: all 300ms linear;
 }
 
-.container {
-    width: 100%;
-    padding: 20px;
-}
-
 .flex {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-}
-
-section {
-    margin: 5px;
-    padding: 10px;
-    height: auto;
 }
 
 .hidden {
@@ -134,8 +139,8 @@ section {
     border-color: #555 transparent transparent transparent;
 }
 
-.popup .hidden {
-    visibility: visible;
+.popup--hidden {
+    visibility: hidden;
     animation: fadeIn 1s;
 }
 

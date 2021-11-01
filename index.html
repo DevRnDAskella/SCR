@@ -12,95 +12,50 @@
 </head>
 
 <body>
-    <div class="container flex">
-        <form class="menu" action="#">
-            <div class="menu-title"><span>МЕНЮ</span></div>
-            <section class="menu-sloted sloted flex">
-                <input type="radio" name="question" value='1' id="arrival" checked>
-                <label for="arrival">ПРИЛЕТАЕМ</label>
-
-                <input type="radio" name="question" value="0" id="departure">
-                <label for="departure">ВЫЛЕТАЕМ</label>
-            </section>
-            <section class="menu-flight flight-type flex">
-                <input type="radio" value='j' name="flights" id="regular" checked>
-                <label for="regular">Регулярный</label>
-
-                <input type="radio" value='p' name="flights" id="empty">
-                <label for="empty">Перегон</label>
-
-                <input type="radio" value='l' name="flights" id="charter">
-                <label for="charter">Чартер</label>
-            </section>
-            <section class="menu-correction flex">
-                <input type="radio" name='correction' id='new' value="new">
-                <label for="new">NEW</label>
-
-                <input type="radio" name='correction' id='correction' value="correction">
-                <label for="correction">CORRECTION</label>
-
-                <input type="radio" name='correction' value="cancel" id='cancel'>
-                <label for="cancel">CANCEL</label>
-            </section>
-            <section class="menu-quantity flex"></section>
-            <section class="menu-aircraft aircraft flex">
-                <label for="aircraft-select">Выберите ВС</label>
-                <select name="aircrafts" id="aircraft-select">
-                    <option value="">--Choose an option--</option>
-                </select>
-            </section>
-            <section class='menu-airports airports'>
-                <div class="airports-base flex"></div>
-                <div class="airports-direction flex"></div>
-            </section>
-            <section class="menu-flight flight flex">
-                <section class="flight-number-main">
-                    <label for="flight-main">Номер рейса (главный)</label>
-                    <input type="text" class="flight-main" id='flight-main' required>
-                </section>
-                <section class="flight-number-secondary none">
-                    <label for="flight-secondary">Номер рейса (вторичный)</label>
-                    <input type="text" class="flight-secondary" id='flight-secondary'>
-                </section>
-            </section>
-            <section class="menu-time time">
-                <div class="time-main origin">
-                    <label for="origin-time-main">Время главного а/п (базовое)</label>
-                    <input required type="text" class="origin-time" id="origin-time-main" name="originMain">
-
-                    <label for="correction-time-main">Время главного а/п (скорректированное)</label>
-                    <input required type="text" class="correction-time" id="correction-time-main" name="correctionMain">
+    <div class="container">
+        <form action="#" class="menu">
+            <div class="wrapper wrapper--flex">
+                <div class="menu__selection">
+                    <div class="selection">
+                        <label for="" class='selection__label label-radio'>SOME TEXT</label>
+                        <input type="radio" name="" id="" class="selection__input radio">
+                    </div>
                 </div>
-                <div class="time-secondary hidden">
-                    <label for="origin-time-secondary">Время второго а/п (базовое)</label>
-                    <input required type="text" class="origin-time" id="origin-time-secondary" name="originSecondary">
-
-                    <label for="correction-time-secondary">Время второго а/п (скорректированное)</label>
-                    <input required type="text" class="correction-time" id="correction-time-secondary" name="correctioSecondary">
+                <div class="menu__input input-data">
+                    <div class='input-data__item flight-number'>
+                        <label class='flight-number__label label-input' for="flight-number">НОМЕР РЕЙСА</label>
+                        <input class='flight-number__input' type="number" name="" id="flight-number">
+                    </div>
+                    <div class='input-data__item aircraft-number'>
+                        <label class='aircraft-number__label label-input' for="aircraft-number">Воздушное судно</label>
+                        <select class='aircraft-number__input' name="" id="aircraft-number">
+                          <option value="default">>>> Choose aircraft &lt&lt&lt</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="time-correction correction">
-                </div>
-            </section>
-            <section class="btns flex">
-                <input type="reset" value="RESET" class='btn'>
-                <button type="submit" id="submit" class="btn">SUBMIT</button>
-            </section>
+            </div>
+            <div class="menu__actions menu__actions--flex">
+                <input class='menu__button btn' type="reset" value="RESET">
+                <input class='menu__button btn' type="submit" value="SUBMIT">
+            </div>
         </form>
-
-        <div class="popup output-data hidden">
-            <img src="./asset/svg/close_icon.svg" class='popup-close' width="15" height="15">
-            <label for="output">Скорректируйте данные, если необходимо</label>
-            <textarea id="output-data" cols="50" rows="15">Некоторый текст</textarea>
-        </div>
     </div>
 
-    <template id='template-elements'>
+
+    <div class="popup popup--hidden">
+        <img src="./asset/svg/close_icon.svg" class='popup-close ' width="15" height="15">
+        <label class="popup__label" for="output-data">Скорректируйте данные, если необходимо</label>
+        <textarea class='popup__textarea ' id="output-data" cols="50" rows="15">Некоторый текст</textarea>
+    </div>
+    </div>
+
+    <template id='template-elements '>
         <div class="airport-element">
-            <input type="radio" id='' name="">
+            <input type="radio" id=' ' name="">
             <label for=""></label>
         </div>
-        <div class='quantity-flights'>
-          <input type="radio" id='' name="">
+        <div class='quantity-flights '>
+          <input type="radio" id=' ' name="">
           <label for=""></label>
         </div>
     </template>
