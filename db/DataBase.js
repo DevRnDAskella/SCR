@@ -23,6 +23,33 @@ export const airportsList = [{
     },
 ];
 
+export const modeCorrectionList = [
+    { new: 'N' },
+    { correctionOrigin: 'C' },
+    { correctionRequest: 'R' },
+    { cancel: 'D' },
+];
+
+export const flightsList = [{
+    201: {
+        airportDeparture: 'ROV',
+        airportArrival: 'VKO',
+        originTime: '0435',
+    }
+}, {
+    202: {
+        airportDeparture: 'VKO',
+        airportArrival: 'ROV',
+        originTime: '0435',
+    }
+}, {
+    291: {
+        airportDeparture: 'ROV',
+        airportArrival: 'VKO',
+        originTime: '0435',
+    }
+}, ];
+
 export const aircraftsList = [
     { aircraftNumber: 89036, aircraftLayout: 103, aircraftType: 'SU9' },
     { aircraftNumber: 89079, aircraftLayout: 100, aircraftType: 'SU9' },
@@ -42,4 +69,4 @@ export const aircraftsList = [
 
 ];
 
-export default { airportsList, aircraftsList, };
+export default { airportsList, aircraftsList, flightsList, modeCorrectionList };

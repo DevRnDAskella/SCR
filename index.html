@@ -17,16 +17,21 @@
             <div class="wrapper wrapper--flex">
                 <div class="menu__selection">
                     <div class="selection">
-                        <label for="" class='selection__label label-radio'>SOME TEXT</label>
-                        <input type="radio" name="" id="" class="selection__input radio">
+                        <label for="test" class='selection__label label-radio'>SOME TEXT</label>
+                        <input type="radio" id="test" class="selection__input radio" checked>
                     </div>
                 </div>
-                <div class="menu__input input-data">
-                    <div class='input-data__item flight-number'>
-                        <label class='flight-number__label label-input' for="flight-number">НОМЕР РЕЙСА</label>
-                        <input class='flight-number__input' type="number" name="" id="flight-number">
+                <div class="menu__data" style="border: 1px white solid">
+                    <div class="data flex">
+                        <div class='data__input-flight flight-number'>
+                            <label class='flight-number__label label-input' for="flight-number">НОМЕР РЕЙСА</label>
+                            <input class='flight-number__input' type="number" id="flight-number">
+                        </div>
+                        <div class='data__output-flight'>
+                        </div>
                     </div>
-                    <div class='input-data__item aircraft-number'>
+                    <button class="input-data__add-flight">+</button>
+                    <div class='input-data__item aircraft-number none'>
                         <label class='aircraft-number__label label-input' for="aircraft-number">Воздушное судно</label>
                         <select class='aircraft-number__input' name="" id="aircraft-number">
                           <option value="default">>>> Choose aircraft &lt&lt&lt</option>
@@ -42,21 +47,21 @@
     </div>
 
 
-    <div class="popup popup--hidden">
+    <div class="popup hidden">
         <img src="./asset/svg/close_icon.svg" class='popup-close ' width="15" height="15">
         <label class="popup__label" for="output-data">Скорректируйте данные, если необходимо</label>
         <textarea class='popup__textarea ' id="output-data" cols="50" rows="15">Некоторый текст</textarea>
     </div>
     </div>
 
-    <template id='template-elements '>
-        <div class="airport-element">
+    <template id='template-elements'>
+        <div class="radio-label">
             <input type="radio" id=' ' name="">
             <label for=""></label>
         </div>
-        <div class='quantity-flights '>
-          <input type="radio" id=' ' name="">
-          <label for=""></label>
+        <div class='label-input-text'>
+          <label></label>
+          <input type="text">
         </div>
     </template>
     <script src="./asset/js/main.js" type="module"></script>

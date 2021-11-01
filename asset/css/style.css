@@ -27,6 +27,18 @@ body {
     transition: all 300ms linear;
 }
 
+input,
+option,
+select,
+label {
+    background: var(--dark-light);
+    color: var(--white)
+}
+
+input[type="radio"] {
+    display: none;
+}
+
 .container {
     width: 80%;
     padding: 2rem;
@@ -54,24 +66,6 @@ body {
     margin-top: 3rem;
 }
 
-input,
-option,
-select,
-label {
-    background: var(--dark-light);
-    color: var(--white)
-}
-
-input[type="radio"] {
-    display: none;
-}
-
-label {
-    padding: 15px;
-    border: 1px solid #000;
-    border-radius: 5%;
-}
-
 input[type="radio"]+label {
     margin: 5px;
 }
@@ -91,7 +85,6 @@ input[type="radio"]:checked+label {
 
 .hidden {
     visibility: hidden;
-    /* элемент невидим, но занимается место на странице и влияет на разметку*/
 }
 
 .none {
