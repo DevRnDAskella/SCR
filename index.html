@@ -14,50 +14,49 @@
 <body>
     <div class="container">
         <form action="#" class="menu">
-            <div class="wrapper wrapper--flex">
-                <div class="menu__info-input info-input" style="border: 1px white solid">
-                  <div class="info-input__mode-correction mode flex">
+            <div class="menu__info info__general">
+                <div class="info__input-element mode mode--flex">
                     <div class="mode-correction__item-1 item-1">
-                      <input type="radio" class="item-1__input" name="mode" id="regular" checked='checked'>
-                      <label for="regular" class="item-1__label">Regular</label>
+                        <input type="radio" class="item-1__input" name="mode" id="regular" checked='checked'>
+                        <label for="regular" class="item-1__label">Regular</label>
                     </div>
                     <div class="mode-correction__item-2 item-2">
-                      <input type="radio" class="item-2__input" name="mode" id="new">
-                      <label for="new" class="item-2__label">New</label>
+                        <input type="radio" class="item-2__input" name="mode" id="new">
+                        <label for="new" class="item-2__label">New</label>
                     </div>
                     <div class="mode-correction__item-3 item-3">
-                      <input type="radio" class="item-3__input" name="mode" id="cancel">
-                      <label for="cancel" class="item-3__label">Cancel</label>
+                        <input type="radio" class="item-3__input" name="mode" id="cancel">
+                        <label for="cancel" class="item-3__label">Cancel</label>
                     </div>
-                  </div>
-                    <div class='info-input-flight flight-number'>
+                </div>
+                <div class='info__input-element aircraft-number'>
+                    <label class='aircraft-number__label label-input' for="aircraft-number">Воздушное судно</label>
+                    <select class='aircraft-number__input' name="" id="aircraft-number" tabindex='-1'>
+                    <option value="default">>>> Choose aircraft &lt&lt&lt</option>
+                  </select>
+                </div>
+            </div>
+            <div class="wrapper wrapper--flex">
+                <div class="menu__info info__flight-main">
+                    <div class='info-flight flight-number'>
                         <label class='flight-number__label label-input' for="flight-number">НОМЕР РЕЙСА</label>
                         <input class='flight-number__input' type="number" id="flight-number">
                     </div>
-                    <button class="info-input__add-flight add-flight">+</button>
-                    <div class='info-input__item aircraft-number'>
-                        <label class='aircraft-number__label label-input' for="aircraft-number">Воздушное судно</label>
-                        <select class='aircraft-number__input' name="" id="aircraft-number">
-                          <option value="default">>>> Choose aircraft &lt&lt&lt</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="menu__info-output info-output">
-                    <div class="info-output__airport-primary airport-primary">
+                    <div class="info-flight-primary airport-primary">
                         <label class='airport-primary__label' for="airport-primary">Аэропорт вылета</label>
-                        <input class='airport-primary__input' type="text" id="airport-primary">
+                        <input class='airport-primary__input' type="text" id="airport-primary" tabindex='-1'>
                     </div>
-                    <div class="info-output__airport-secondary airport-secondary">
+                    <div class="info-flight-secondary airport-secondary">
                         <label class='airport-secondary__label' for="airport-secondary">Аэропорт прилета</label>
-                        <input class='airport-secondary__input' type="text" id="airport-secondary">
+                        <input class='airport-secondary__input' type="text" id="airport-secondary" tabindex='-1'>
                     </div>
-                    <div class="info-output__time-primary-origin time-primary-origin">
-                        <label class='time-primary-origin__label' for="time-origin">Первоначальное время прибытия</label>
-                        <input class='time-primary-origin__input' type="number" id="time-origin">
+                    <div class="info-flight-primary-origin time-primary-origin">
+                        <label class=' time-primary-origin__label ' for="time-origin">Первоначальное время прибытия</label>
+                        <input class='time-primary-origin__input ' type="number" id="time-origin" tabindex='-1'>
                     </div>
-                    <div class="info-output__time-primary-correction time-primary-correction">
-                        <label class='time-primary-correction__label' for="time-primary-correction">Скорректируйте время прибытия</label>
-                        <input class='time-primary-correction__input' type="number" id="time-primary-correction">
+                    <div class="info-flight-primary-correction time-primary-correction">
+                        <label class='time-primary-correction__label ' for="time-primary-correction">Скорректируйте время прибытия</label>
+                        <input class='time-primary-correction__input ' type="number" id="time-primary-correction">
                     </div>
 
                     <div class="info-output__airport-secondary"></div>
@@ -65,32 +64,39 @@
                     <div class="info-output__time-secondary-correction"></div>
 
                     <div class="info-output__airport-email email">
-                        <label class='email__label' for="email">EMAIL</label>
-                        <input class='email__input' type="text" id="email">
+                        <label class='email__label ' for="email">EMAIL</label>
+                        <input class='email__input ' type="text" id="email">
+                    </div>
+                </div>
+                <div class="menu__info info__add-flight">
+                    <button class="btn button__add-flight">+</button>
+                </div>
+                <div class="menu__info info__flight-secondary none">
+                    <div class='info-input__element flight-number-two none '>
+                        <label class='flight-number-two__label label-input ' for="flight-number-2">НОМЕР 2 РЕЙСА</label>
+                        <input class='flight-number-two__input ' type="number" id="flight-number-2">
                     </div>
                 </div>
             </div>
-            <div class="menu__actions menu__actions--flex">
-                <input class='menu__button btn' type="reset" value="RESET">
-                <input class='menu__button btn' type="submit" value="SUBMIT">
+            <div class="menu__actions info__submit menu__actions--flex">
+                <input class='menu__button btn ' type="reset" value="RESET">
+                <input class='menu__button btn ' type="submit" value="SUBMIT">
             </div>
         </form>
     </div>
-
-
     <div class="popup hidden">
-        <img src="./asset/svg/close_icon.svg" class='popup-close ' width="15" height="15">
         <label class="popup__label" for="output-data">Скорректируйте данные, если необходимо</label>
+        <img src="./asset/svg/close_icon.svg" class='popup-close ' width="15" height="15">
         <textarea class='popup__textarea ' id="output-data" cols="50" rows="15">Некоторый текст</textarea>
     </div>
     </div>
 
-    <template id='template-elements'>
+    <template id='template-elements '>
         <div class="radio-label">
             <input type="radio" id=' ' name="">
             <label for=""></label>
         </div>
-        <div class='label-input-text'>
+        <div class='label-input-text '>
           <label></label>
           <input type="text">
         </div>

@@ -27,6 +27,27 @@ body {
     transition: all 300ms linear;
 }
 
+.basically {
+    border: 1px solid white;
+}
+
+.mode {
+    padding: 1rem;
+}
+
+.mode--flex {
+    display: flex;
+    justify-content: center;
+}
+
+.aircraft-number {
+    padding: 0 1rem 1rem 1rem;
+}
+
+.info__flight-main {
+    border: 1px solid white;
+}
+
 input,
 option,
 select,
@@ -40,19 +61,31 @@ input[type="radio"] {
 }
 
 .container {
-    width: 80%;
     padding: 2rem;
+}
+
+.info__general {
+    text-align: center;
+}
+
+.info__add-flight {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button__add-flight {
+    padding: .7rem 1.1rem .7rem 1.1rem;
+    border-radius: .5rem;
+    display: block;
 }
 
 .wrapper--flex {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-}
-
-.menu__actions {
-    margin-top: 3rem;
 }
 
 .menu__actions--flex {
@@ -70,6 +103,10 @@ input[type="radio"] {
     border: 1px solid white;
 }
 
+.add-flight {
+    text-align: center;
+}
+
 input[type="radio"]+label {
     margin: 5px;
 }
@@ -80,9 +117,16 @@ input[type="radio"]:checked+label {
     transition: all 300ms linear;
 }
 
+.info__submit {
+    padding: 1.5rem;
+}
+
+
+/* ==== GENERAL ==== */
+
 .flex {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -105,13 +149,14 @@ input[type="radio"]:checked+label {
 /* === POPUP === */
 
 .popup {
-    position: relative;
+    position: absolute;
+    right: 36%;
     display: inline-block;
     cursor: pointer;
 }
 
 .popup {
-    width: 30%;
+    width: 40%;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -123,9 +168,8 @@ input[type="radio"]:checked+label {
 }
 
 .popup textarea {
-    background-color: rgb();
     resize: none;
-    width: 100%;
+    width: 97%;
     border: none;
     outline: none;
     border-bottom: 1px solid #cfd0d3;
@@ -154,11 +198,6 @@ input[type="radio"]:checked+label {
     to {
         opacity: 1;
     }
-}
-
-.airports-base,
-.airports-direction {
-    height: 70px;
 }
 
 
